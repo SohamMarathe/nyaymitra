@@ -68,8 +68,7 @@ API key setup. No paid services required to build or run this locally.
 
 ## Languages
 
-English, Hindi, Marathi, Bengali, Tamil, Telugu, Gujarati, Kannada — the
-knowledge base stays in English (the authoritative language for Indian
+English, Hindi, Marathi — the knowledge base stays in English (the authoritative language for Indian
 statutes); multilingual support happens at the query and response layer
 via cross-lingual embeddings and language-aware generation. See
 `docs/design-decisions.md` for why this is more scalable than maintaining
