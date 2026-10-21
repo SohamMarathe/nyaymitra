@@ -1,0 +1,37 @@
+# --- Secrets ---
+.env
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# --- Generated knowledge base indexes (rebuild locally with run_ingestion.py) ---
+indexes/*.index
+indexes/*_metadata.json
+
+# --- Local SQLite dev database (generated at runtime, see SETUP.md step 3.5) ---
+nyayamitra.db
+
+# --- Raw legal documents you download yourself ---
+# These are large, copyrighted-by-no-one-but-still-large government PDFs.
+# Everyone who clones this repo downloads their own copies (see
+# knowledge_base_raw/README.md) rather than bloating the git history.
+knowledge_base_raw/**/*.pdf
+knowledge_base_raw/**/*.txt
+!knowledge_base_raw/README.md
+!knowledge_base_raw/**/README.md
+
+# --- Node / Next.js ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,79 @@
+/* ─────────────────────────────────────────────────────────────
+   Design tokens
+   Palette is deliberately not the generic "warm cream + terracotta"
+   AI-default look. Navy is drawn from the blue of the Ashoka Chakra on
+   official Indian documents/seals — steady, institutional, calm. Gold
+   nods to official-seal wax rather than a startup accent color. Green
+   and terracotta double as semantic colors for the confidence meter,
+   the one truly signature element on this page.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --ink-navy: #10233f;
+  --ink-navy-soft: #2a3f60;
+  --paper: #fbf9f5;
+  --paper-raised: #ffffff;
+  --seal-gold: #c79a3c;
+  --banyan-green: #3a6b52;
+  --terracotta: #b5533c;
+  --slate: #5b6472;
+  --slate-light: #9aa2ad;
+  --line: #e4dfd4;
+
+  --radius: 10px;
+  --shadow-card: 0 1px 2px rgba(16, 35, 63, 0.06), 0 4px 16px rgba(16, 35, 63, 0.05);
+
+  /* Noto Sans is the one family with matched-metric coverage across every
+     script NyayaMitra needs to render. Script-specific Noto families are
+     loaded as a fallback chain in layout.tsx — the browser picks glyphs
+     from whichever loaded font actually covers the character being shown,
+     so a single Hindi/Tamil/Bengali response renders cleanly without a
+     separate stylesheet per language. */
+  --font-ui: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Bengali",
+    "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Gujarati",
+    "Noto Sans Kannada", system-ui, sans-serif;
+  --font-display: "Noto Serif", "Noto Sans Devanagari", "Noto Sans Bengali",
+    "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Gujarati",
+    "Noto Sans Kannada", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-navy);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--ink-navy);
+}
+
+/* Visible keyboard focus everywhere — non-negotiable, not just for the
+   signature element. */
+:focus-visible {
+  outline: 2px solid var(--seal-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

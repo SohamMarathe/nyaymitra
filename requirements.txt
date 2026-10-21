@@ -1,0 +1,34 @@
+# --- Web framework ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+
+# --- Orchestration ---
+# Note: plain LangChain is intentionally NOT included. We use LangGraph only
+# for orchestration (StateGraph, conditional routing) and call the Gemini
+# API directly via google-genai inside each node. This avoids an extra
+# abstraction layer and its own version-compatibility surface — one less
+# thing to break on a beginner's machine. See docs/design-decisions.md.
+langgraph>=0.2.60
+
+# --- Gemini API (current SDK — NOT the deprecated google-generativeai) ---
+google-genai>=1.0.0
+
+# --- Data validation / structured LLM output ---
+pydantic>=2.7
+
+# --- Database ---
+sqlalchemy>=2.0
+# Only needed if you keep the default PostgreSQL setup. Using the SQLite
+# simplification instead (see SETUP.md step 3.5)? You can skip this line —
+# SQLite support is built into Python already, no driver needed.
+psycopg[binary]>=3.1
+
+# --- Knowledge base / retrieval ---
+faiss-cpu>=1.8.0
+pdfplumber>=0.11.0
+
+# --- Language detection ---
+langdetect>=1.0.9
+
+# --- Config ---
+python-dotenv>=1.0
